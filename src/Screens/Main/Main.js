@@ -30,10 +30,10 @@ function Main({requestGetImages, images, history, location, totalResults, totalP
         let urlValue = queryString.parse(location.search);
         let pageNo = urlValue.page? urlValue.page: 1;
         let key = urlValue.q? urlValue.q: '';
+        updatePageURL(pageNo, key);
         setSelectedPageNo(pageNo);
         setSearchQuery(key);
         requestGetImages(pageNo, key);
-        updatePageURL(pageNo, key);
     },[location.search]);
 
     const handleInputChange = (e) => {
@@ -41,7 +41,8 @@ function Main({requestGetImages, images, history, location, totalResults, totalP
     }
 
     const handleSearch = () => {
-        updatePageURL(selectedPage, query);
+        updatePageURL(1, query);
+        setSelectedPageNo(1);
     }
 
     const handlePageClick = (data) => {
