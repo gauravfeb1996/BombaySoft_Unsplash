@@ -4,7 +4,7 @@ import './Pagination.scss';
 function CustomPagination({selectedPage, totalPages, handlePageClick}) {
     return (
         <ReactPaginate
-          initialPage={selectedPage-1}
+          forcePage={selectedPage-1}
           previousLabel={'Prev'}
           nextLabel={'Next'}
           breakLabel={'...'}
