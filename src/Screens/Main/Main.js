@@ -34,7 +34,7 @@ function Main({requestGetImages, images, history, location, totalResults, totalP
         setSearchQuery(key);
         requestGetImages(pageNo, key);
         updatePageURL(pageNo, key);
-    },[]);
+    },[location.search]);
 
     const handleInputChange = (e) => {
         setSearchQuery(e.target.value);
@@ -42,13 +42,11 @@ function Main({requestGetImages, images, history, location, totalResults, totalP
 
     const handleSearch = () => {
         updatePageURL(selectedPage, query);
-        requestGetImages(selectedPage, query);
     }
 
     const handlePageClick = (data) => {
         setSelectedPageNo(data.selected+1);
         updatePageURL(data.selected+1, query);
-        requestGetImages(data.selected+1, query);
     }
 
     return(
